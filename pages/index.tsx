@@ -1,20 +1,20 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import { Box } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Ramtype from '../components/ramType';
 
-const Home: NextPage = () => {
-  return (
-    <Box>
-      <Head>
-        <title>prakash.love</title>
-        <meta
-          name="description"
-          content="About Brahmchari Ram Prakash Ji Maharaj"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-    </Box>
-  );
+const Index: NextPage = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      router.push('/home');
+    }, 1000);
+  }, []);
+  return <Box>{loading ? <Ramtype /> : ''}</Box>;
 };
 
-export default Home;
+export default Index;
