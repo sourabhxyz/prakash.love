@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import { motion, Variants } from 'framer-motion';
 
 const ramType: Variants = {
+  // filter for svg was learned from here: https://stackoverflow.com/a/13624469/11183512
   hidden: { filter: 'drop-shadow(0px 0px 1px #FFF', x: 0, y: 0, opacity: 1 },
   visible: {
     filter: 'drop-shadow(0px 0px 20px #FFF',
@@ -13,6 +14,7 @@ const ramType: Variants = {
       when: 'afterChildren',
       duration: '1.5',
       staggerChildren: 1,
+      // this was learned via: https://stackoverflow.com/a/70073493/11183512
       x: {
         delay: 1.5,
         duration: 1,
@@ -52,7 +54,6 @@ export default function RamType() {
         variants={ramType}
         initial={'hidden'}
         animate={'visible'}
-        // filter={'drop-shadow(0px 0px 8px #ed2424'}
       >
         <defs>
           <style>

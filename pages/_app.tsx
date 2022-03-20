@@ -3,6 +3,7 @@ import { ChakraProvider, Box, Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import { NextPage } from 'next';
 import { ReactNode } from 'react';
+import Footer from '../components/footer';
 
 // on how to use getLayout with typescript, see first comment here: https://dev.to/ofilipowicz/next-js-per-page-layouts-and-typescript-lh5
 type Page<P = {}> = NextPage<P> & {
@@ -30,7 +31,10 @@ function MyApp({ Component, pageProps }: Props) {
           {Component.getLayout ? (
             Component.getLayout(<Component {...pageProps} />)
           ) : (
-            <Component {...pageProps} />
+            <>
+              <Component {...pageProps} />
+              <Footer />
+            </>
           )}
         </Container>
       </Box>
