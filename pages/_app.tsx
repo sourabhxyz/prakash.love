@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Box, Container } from '@chakra-ui/react';
 import Head from 'next/head';
 import { NextPage } from 'next';
 import { ReactNode } from 'react';
@@ -25,12 +25,15 @@ function MyApp({ Component, pageProps }: Props) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {Component.getLayout ? (
-        Component.getLayout(<Component {...pageProps} />)
-      ) : (
-        <Component {...pageProps} />
-      )}
-      {/* getLayout(<Component {...pageProps} />) */}
+      <Box w="100vw" bg="black">
+        <Container maxW={'container.lg'}>
+          {Component.getLayout ? (
+            Component.getLayout(<Component {...pageProps} />)
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </Container>
+      </Box>
     </ChakraProvider>
   );
 }
