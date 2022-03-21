@@ -4,13 +4,14 @@ import Head from 'next/head';
 import { NextPage } from 'next';
 import { ReactNode } from 'react';
 import Footer from '../components/footer';
+import Navbar from '../components/navbar';
 
 // on how to use getLayout with typescript, see first comment here: https://dev.to/ofilipowicz/next-js-per-page-layouts-and-typescript-lh5
-type Page<P = {}> = NextPage<P> & {
+export type Page<P = {}> = NextPage<P> & {
   getLayout?: (page: ReactNode) => ReactNode;
 };
 
-type Props = AppProps & {
+export type Props = AppProps & {
   Component: Page;
 };
 
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }: Props) {
             Component.getLayout(<Component {...pageProps} />)
           ) : (
             <>
+              <Navbar />
               <Component {...pageProps} />
               <Footer />
             </>

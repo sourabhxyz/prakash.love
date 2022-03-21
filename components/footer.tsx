@@ -5,10 +5,16 @@ import NextLink from 'next/link';
 import { FiExternalLink } from 'react-icons/fi';
 
 const MotionText = motion(Text);
+const MotionHStack = motion(HStack);
 
 const Footer: NextPage = () => {
   return (
-    <HStack alignItems={'center'} justifyContent={'center'}>
+    <MotionHStack
+      alignItems={'center'}
+      justifyContent={'center'}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <Text color={'white'} fontWeight={'600'}>
         Handcrafted with
       </Text>
@@ -41,7 +47,7 @@ const Footer: NextPage = () => {
             bottom: 0.5,
             left: 0,
             bg: 'red',
-            zIndex: 1,
+            // zIndex: 1,
             transition: '0.3s',
           }}
           _hover={{
@@ -53,7 +59,7 @@ const Footer: NextPage = () => {
           sourabh.xyz <Icon as={FiExternalLink} boxSize={'0.85em'}></Icon>
         </Link>
       </NextLink>
-    </HStack>
+    </MotionHStack>
   );
 };
 

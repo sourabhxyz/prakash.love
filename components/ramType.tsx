@@ -4,12 +4,19 @@ import { motion, Variants } from 'framer-motion';
 
 const ramType: Variants = {
   // filter for svg was learned from here: https://stackoverflow.com/a/13624469/11183512
-  hidden: { filter: 'drop-shadow(0px 0px 1px #FFF', x: 0, y: 0, opacity: 1 },
+  hidden: {
+    filter: 'drop-shadow(0px 0px 1px #FFF',
+    x: 0,
+    y: 0,
+    opacity: 1,
+    scale: 1,
+  },
   visible: {
     filter: 'drop-shadow(0px 0px 20px #FFF',
     opacity: 0,
-    x: 'calc(-1 * calc(min(50vw, 512px) - 96px))',
+    x: 'calc(-1 * calc(min(50vw, 512px) - 65px))',
     y: 'calc(-1 * calc(50vh - 32px))',
+    scale: 0.3,
     transition: {
       when: 'afterChildren',
       duration: '1.5',
@@ -24,6 +31,10 @@ const ramType: Variants = {
         duration: 1,
       },
       opacity: {
+        delay: 1.5,
+        duration: 1,
+      },
+      scale: {
         delay: 1.5,
         duration: 1,
       },
@@ -95,9 +106,3 @@ export default function RamType() {
     </Flex>
   );
 }
-
-RamType.getLayout = (page: ReactNode) => {
-  {
-    page;
-  }
-};
