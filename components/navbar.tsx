@@ -80,6 +80,7 @@ const baseStyle = {
   p: 2,
   color: '#897A83',
   position: 'relative',
+  fontWeight: '600',
   _after: {
     content: "''",
     width: '0px',
@@ -103,6 +104,7 @@ const activatedStyle = {
   p: 2,
   color: '#EBE8E8',
   position: 'relative',
+  fontWeight: '600',
   _after: {
     content: "''",
     width: 'full',
