@@ -274,7 +274,7 @@ const Home: NextPage = () => {
                         <Icon as={FaYoutube}></Icon> Youtube
                       </Link>
                       <Link
-                        href={videoChildren.videoDownloadLink}
+                        href={videoChildren.downloadLink}
                         isExternal={true}
                         sx={linkStyle}
                       >
