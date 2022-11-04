@@ -1,11 +1,10 @@
 import { NextPage } from 'next';
-
+import maharajjiImage from '../public/maharjji.png'
 import {
   Stack,
   Box,
   Text,
   HStack,
-  Image,
   Heading,
   Icon,
   List,
@@ -14,6 +13,7 @@ import {
   OrderedList,
   UnorderedList,
   Link,
+  chakra,
 } from '@chakra-ui/react';
 
 import { motion, Variants } from 'framer-motion';
@@ -22,6 +22,7 @@ import { FaAsterisk, FaYoutube } from 'react-icons/fa';
 import { MdAudiotrack } from 'react-icons/md';
 import { RiVideoLine } from 'react-icons/ri';
 import { AiOutlineRight, AiOutlineDoubleRight } from 'react-icons/ai';
+import Image from 'next/image'
 
 const MotionText = motion(Text);
 const MotionBox = motion(Box);
@@ -151,6 +152,9 @@ const linkStyle = {
 
 const Home: NextPage = () => {
   // const splitter = new GraphemeSplitter();
+  const OurImage = chakra(Image, {
+    shouldForwardProp: (prop) => ["src", "placeholder", "alt", "blurDataURL"].includes(prop)
+  })
   return (
     <Box>
       <Stack
@@ -160,9 +164,13 @@ const Home: NextPage = () => {
         direction={{ base: 'column', md: 'row' }}
       >
         <Image
-          width={{ base: '200px', md: '250px', lg: '300px' }}
-          height={{ base: '200px', md: '250px', lg: '300px' }}
-          src="/maharjji.png"
+          // width={{ base: '634px', md: '792px', lg: '950px' }}
+          // height={{ base: '634px', md: '792px', lg: '950px' }}
+          width='950px'
+          height='950px'
+          placeholder='blur'
+          alt='photo of maharajji'
+          src={maharajjiImage}
         ></Image>
         <MotionBox variants={sentence} initial="hidden" animate="visible">
           <MotionText
