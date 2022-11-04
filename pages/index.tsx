@@ -7,16 +7,16 @@ import { startAnimationDuration } from '../globalVars';
 import { Page } from './_app';
 
 const Index: Page = () => {
-  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
+
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    const timer = setTimeout(() => {
       router.push('/home');
     }, startAnimationDuration * 1000);
+    router.prefetch('/home');  // we want loading this page to be faster.
+    return () => clearTimeout(timer)
   }, []);
-  return <Box>{loading ? <Ramtype /> : ''}</Box>;
+  return <Ramtype />
 };
 
 Index.getLayout = (page: ReactNode) => page;

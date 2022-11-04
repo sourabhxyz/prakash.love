@@ -152,7 +152,7 @@ const linkStyle = {
 const Home: NextPage = () => {
   // const splitter = new GraphemeSplitter();
   return (
-    <MotionBox initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <Box>
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
@@ -297,7 +297,7 @@ const Home: NextPage = () => {
           ))}
         </List>
       </Box>
-    </MotionBox>
+    </Box>
   );
 };
 
